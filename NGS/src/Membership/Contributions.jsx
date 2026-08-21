@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaAddressCard, FaPlus } from "react-icons/fa";
 import "../STYLES/Contributions.css";
 import { MdArrowDownward } from "react-icons/md";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const Contributions = () => {
   const paymentArr = [];
@@ -19,19 +21,23 @@ const Contributions = () => {
       ...prev,
       [name]: value,
     }));
-    console.log(records);
   }
-
-  const addPayment = async (e) => {
+  async function addPayment(e) {
     e.preventDefault();
-
-    paymentArr.push({
-      ...records,
-    });
-    storedPayment = [...paymentArr];
-
-    localStorage.setItem("Payments", JSON.stringify(storedPayment));
-  };
+    try {
+      if (records.amountPaid < 1000)
+        return toast.info("Payment must be 1k or higher");
+      let res = await axios.post(
+        "https://vercel.com/tech-0411/ngs-classof2015/payment" ||
+          "http://localhost:8500/payment",
+        records,
+      );
+      if (!res.data) return toast.error("something went wrong");
+      toast.success("payment added successfully!");
+    } catch (err) {
+      throw new Error("something went wrong");
+    }
+  }
 
   return (
     <div className="Contributions">
@@ -40,7 +46,9 @@ const Contributions = () => {
       </h1>
       <section className="Form">
         <form>
-          <h1>enter data here <MdArrowDownward className="icon-a"/></h1>
+          <h1>
+            enter data here <MdArrowDownward className="icon-a" />
+          </h1>
           <section className="date">
             <input
               type="date"

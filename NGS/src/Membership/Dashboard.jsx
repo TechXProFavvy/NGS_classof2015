@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../STYLES/Dashboard.css";
 
 import {
@@ -27,13 +27,14 @@ const Dashboard = () => {
     currency: "NGN",
     currencySign: "accounting",
   });
-  const activeMem=43
-  let totalPayment =85000;
+  const activeMem = 43;
+  const [totalPayment, setTotalPayment] = useState(85000);
+  const [loading, setLoading] = useState(true);
   let totalCurrency = accountingFormatter.format(totalPayment);
   const yearlyPayment = 1000 * 4 * 12 * activeMem;
   let variance = totalPayment - yearlyPayment;
-  let percent=totalPayment/yearlyPayment
-  let roundPrc=Math.round(percent*100)
+  let percent = totalPayment / yearlyPayment;
+  let roundPrc = Math.round(percent * 100);
   let current_var = accountingFormatter.format(variance);
   let currency = accountingFormatter.format(parseInt(yearlyPayment));
   const activeYear = new Date().getFullYear();
@@ -52,6 +53,29 @@ const Dashboard = () => {
     "dec",
   ];
   const activeMonth = parseInt(new Date().getMonth());
+  useEffect(() => {
+    async function getStoredPayment() {
+      try {
+        let res = await fetch(
+          "https://vercel.com/tech-0411/ngs-classof2015/payment" ||
+            "http://localhost:8500/payment",
+        );
+        let data = await res.json();
+        if (!data) return;
+        setTotalPayment((prev) => ({
+          ...prev,
+          data,
+        }));
+      } catch (error) {
+        throw new Error("Error in data");
+      } finally {
+        setLoading(false);
+      }
+    }
+    getStoredPayment();
+  }, []);
+
+  if (loading) return <p>loading ...</p>;
   return (
     <div className="Dashboard">
       <div className="container">
@@ -67,7 +91,7 @@ const Dashboard = () => {
         </div>
         <div className="card">
           <p>variance</p>
-          {totalPayment < yearlyPayment/2 ? (
+          {totalPayment < yearlyPayment / 2 ? (
             <AiOutlineArrowDown className="neg" />
           ) : (
             <AiOutlineArrowUp className="plus" />
@@ -90,8 +114,7 @@ const Dashboard = () => {
         <div className="doughnut">
           {`
            ${roundPrc}%
-           `
-          }
+           `}
         </div>
       </div>
     </div>

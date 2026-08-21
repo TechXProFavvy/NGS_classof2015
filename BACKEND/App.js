@@ -5,6 +5,7 @@ import dotEnv from "dotenv";
 import router from "./Routes/eventRoutes.js";
 import dbconnection from "./Database/DataBase.js";
 import { messageRouter } from "./Routes/messageRoutes.js";
+import { paymentRouter } from "./Routes/paymentRoutes.js";
 dotEnv.config();
 
 export const PORT = process.env.PORT;
@@ -30,7 +31,4 @@ app.use(
 app.use(express.json());
 app.use("/event", router);
 app.use("/msg", messageRouter);
-
-// -----------calling the Database---------//
-
-
+app.use("/payment", paymentRouter);
