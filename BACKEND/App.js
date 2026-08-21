@@ -12,7 +12,23 @@ export const PORT = process.env.PORT;
 export const app = express();
 // ----middle wares-----
 
-app.use(cors());
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://greactachievers-ngs-classof2015.netlify.app",
+  "https://vercel.com/tech-0411/ngs-classof2015/",
+];
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+  }),
+);
+
 app.use(express.urlencoded({ extended: true }));
 app.use(
   session({

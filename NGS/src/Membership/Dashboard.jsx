@@ -28,7 +28,7 @@ const Dashboard = () => {
     currencySign: "accounting",
   });
   const activeMem = 43;
-  const [totalPayment, setTotalPayment] = useState(85000);
+  const [totalPayment, setTotalPayment] = useState({});
   const [loading, setLoading] = useState(true);
   let totalCurrency = accountingFormatter.format(totalPayment);
   const yearlyPayment = 1000 * 4 * 12 * activeMem;
@@ -62,12 +62,13 @@ const Dashboard = () => {
         );
         let data = await res.json();
         if (!data) return;
+        console.log(data);
         setTotalPayment((prev) => ({
           ...prev,
           data,
         }));
       } catch (error) {
-        throw new Error("Error in data");
+        throw new Error("Error in data",error);
       } finally {
         setLoading(false);
       }
