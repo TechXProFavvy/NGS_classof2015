@@ -1,0 +1,242 @@
+.Home {
+  width: 100%;
+  height: calc(100vh - 75px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: "Outfit";
+  overflow: hidden;
+  position: relative;
+  transition: all 0.2s ease;
+
+  h1 {
+    width: 55%;
+    color: var(--lghtTxt);
+    text-transform: uppercase;
+    text-align: center;
+    font-size: var(--hfntSz);
+    font-family: "Courier New", Courier, monospace;
+  }
+}
+.hero {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  h1 {
+    font-size: 2.5rem;
+    width: 100%;
+    line-height: 2.5rem;
+    font-family: "Outfit";
+    text-shadow: var(--txtShadow);
+  }
+}
+.text {
+  flex: 1;
+  text-align: center;
+  width: 100%;
+  position: relative;
+  animation: drop 2s linear;
+  h3 {
+    color: rgba(255, 255, 255, 0.85);
+    padding: 1rem;
+  }
+
+  a {
+    display: block;
+    text-align: center;
+    width:40%;
+    background: var(--ngsLght);
+    padding: 1rem;
+    border-radius: 25px;
+    position: absolute;
+    justify-self: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: var(--cardShadow);
+    font-weight: var(--fntW);
+    color: var(--txt);
+    &:hover {
+      background: var(--heat);
+      color: var(--lghtTxt);
+      box-shadow: var(--cardShadow);
+      transform: translateY(-15%);
+    }
+  }
+}
+.image {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  flex: 1;
+  border-radius: 10px;
+  box-shadow: var(--DbxShadow);
+  overflow: auto;
+  padding: 2rem auto 2rem auto;
+  animation: fade 5s ease infinite;
+  transition: all 0.2s ease;
+
+  img {
+    mix-blend-mode: luminosity;
+    object-fit: cover;
+    filter: drop-shadow(5px 10px 3px rgba(0, 0, 0, 0.5));
+    width: 75%;
+    height: 100%;
+    transition: all 0.2s ease;
+    &:hover {
+      scale: 1.1;
+    }
+  }
+}
+.image::after {
+  content: "";
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  background-color: var(--bg_Lgt);
+  bottom: 0%;
+  padding: 1rem;
+  z-index: -1;
+  filter: blur(150px);
+  border-radius: 50%;
+  right: 10%;
+}
+.image::before {
+  content: "";
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  background-color: var(--bg_Lgt);
+  top: 0;
+  padding: 1rem;
+  z-index: -1;
+  filter: blur(150px);
+  border-radius: 50%;
+}
+
+@keyframes drop {
+  0%,
+  25% {
+    transform: translateY(-200%);
+    opacity: 0;
+  }
+  25%,
+  50% {
+    transform: translateY(-100%);
+    opacity: 0.2;
+  }
+  50%,
+  75% {
+    transform: translateY(-50%);
+    opacity: 0.3;
+  }
+  75%,
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+::-webkit-scrollbar {
+  display: none;
+}
+/* --------------Mobile View------------ */
+
+@media all and (max-width: 800px) {
+  .Home {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 3rem;
+    font-family: "Outfit";
+    overflow: hidden;
+    position: relative;
+    transition: all 0.2s ease;
+
+    h1 {
+      width: 100%;
+      color: var(--lghtTxt);
+      text-transform: uppercase;
+      text-align: center;
+      font-size: 1.5rem;
+      font-family: "Courier New", Courier, monospace;
+    }
+    .hero {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: between;
+      gap: 1rem;
+      h1 {
+        font-family: sans-serif;
+        font-weight: 900;
+      }
+    }
+  }
+
+  .image {
+    flex: 2;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: var(--DbxShadow);
+    overflow: auto;
+    animation: fade 5s ease infinite;
+    transition: all 0.2s ease;
+    gap: 1rem;
+
+    img {
+      mix-blend-mode: luminosity;
+      object-fit: cover;
+      filter: drop-shadow(5px 10px 3px rgba(0, 0, 0, 0.5));
+      width: 200px;
+      height: 200px;
+      transition: all 0.2s ease;
+      align-content: center;
+      margin: 30px auto 10px auto;
+      &:hover {
+        scale: 1.02;
+      }
+    }
+  }
+  .image::after {
+    content: "";
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    background-color: var(--ngsLght);
+    bottom: 0%;
+    padding: 1rem;
+    z-index: -1;
+    filter: blur(150px);
+    border-radius: 50%;
+    right: 10%;
+  }
+  .text {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    align-content: center;
+    a {
+      color: var(--ngsDrk);
+      font-weight: var(--fntW);
+      width: 40%;
+      padding: 0.5rem;
+    }
+  }
+}

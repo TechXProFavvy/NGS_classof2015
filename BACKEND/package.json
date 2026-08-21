@@ -1,0 +1,37 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "\"NGS SERVER\"",
+  "homepage": "https://github.com/TechXProFavvy/NGS_WEBAPP#readme",
+  "bugs": {
+    "url": "https://github.com/TechXProFavvy/NGS_WEBAPP/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/TechXProFavvy/NGS_WEBAPP.git"
+  },
+  "license": "ISC",
+  "author": "Lenu Favour",
+  "type": "module",
+  "main": "App.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "startDev":"nodemon App.js",
+    "startWatch":"node --trace-warnings --watch App.js",
+    "startProd":"node app.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express-session": "^1.19.0",
+    "mongoose": "^9.9.2",
+    "nodemon": "^3.1.14",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0",
+    "qrcode": "^1.5.4"
+  }
+}

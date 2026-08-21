@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+
+:root {
+  --Lnbg: linear-gradient(to bottom, #091233, #0000);
+  --Ln_bg: radial-gradient(#091233ff, #0000);
+  --bg: #091233;
+  --heat: #fa7101;
+  --danger:#EF4444;
+  --dngBg:#EF444466;
+  --heato: 2px 12px #e25822;
+  --txtShadow: 0px 2px 3px #fa7101, -1px -2px 12px #e25822;
+  --txtShadow2: 0px -1px 4px #fa7101, -1px -2px 12px #e25822;
+
+  --bg_tr: #010513bc;
+  --bg_Lgt: #374472;
+  --btnBg: #6977aa;
+  --bgImg: url("/GREAT_A.png");
+  --lghtTxt: #ffffff;
+  --ngsLght: #c0dbff;
+  --ngsLghtA: #c0dbffed;
+  --ngsDrk: #05080e;
+  --tDrk: #05091a22;
+  --ngsDrk2: rgb(0, 2, 5);
+  --drk_bg: #081222;
+  --Lgt_bg: rgb(73, 88, 109);
+  --hdSz: 1.5rem;
+  --heroHdFnt: 2rem;
+  --fntSz: 1rem;
+  --hfntSz: 2rem;
+  --neonBlue1: #0a0f24;
+  --neonBlue: #0a0f24f7;
+  --neonBlue2: #0a0f246f;
+  --fntW: 900;
+  --DbxShadow: 5px 5px 2px 2px rgba(0, 0, 0, 0.3);
+  --cardShadow: 0px 3px 12px rgba(0, 0, 0, 0.3);
+  --glassShadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
+  --glassBg: rgba(255, 255, 255, 0.2);
+  --LbxShadow:
+    0px 0px 1px 2px rgba(255, 255, 255, 0.3), 0px 5px 3px 2px rgba(0, 0, 0, 0.5);
+}
+#root {
+  min-height: 100vh;
+  overflow: hidden;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Outfit";
+}
+
+body {
+  background: var(--bg);
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+@view-transition {
+  navigation: auto;
+}
+/* ---------Mobile View----------- */
+@media all and (max-width: 800px) {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Outfit";
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    min-height: 100vh;
+    height:100%;
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "Users": [
+    {
+      "id": 1,
+      "name": "favour",
+      "password": "132546Fa",
+      "role": "admin",
+      "position": "user"
+    },
+    {
+      "id": 2,
+      "name": "Jindu",
+      "password": "224321",
+      "role": "admin",
+      "position": "Asst.Sec"
+    }
+  ]
+}
