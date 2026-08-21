@@ -24,7 +24,11 @@ const ContactUs = () => {
     console.log(body);
 
     try {
-      const response = await axios.post("http://localhost:8500/msg", body);
+      const response = await axios.post(
+        "http://localhost:8500/msg" ||
+          "https://vercel.com/tech-0411/ngs-classof2015/msg",
+        body,
+      );
       toast.success("Message sent !");
     } catch (error) {
       const errorMsg = error.response?.data?.message || error.message;

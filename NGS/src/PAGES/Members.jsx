@@ -14,7 +14,10 @@ const Members = () => {
   const activePath = location.pathname.split("/").filter(Boolean).pop();
 
   useEffect(() => {
-    fetch("http://localhost:8500/event")
+    fetch(
+      "http://localhost:8500/event" ||
+        "https://vercel.com/tech-0411/ngs-classof2015/event",
+    )
       .then((res) => res.json())
       .then((data) => {
         setEventCount(data.length);
@@ -22,7 +25,10 @@ const Members = () => {
       .catch((err) => {
         console.log(err);
       });
-    fetch("http://localhost:8500/msg")
+    fetch(
+      "http://localhost:8500/msg" ||
+        "https://vercel.com/tech-0411/ngs-classof2015/msg",
+    )
       .then((res) => res.json())
       .then((data) => {
         setMsg(data.length);

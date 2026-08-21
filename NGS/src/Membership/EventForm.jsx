@@ -29,7 +29,8 @@ const EventForm = () => {
     if (!eventObj) return toast.warn(`fill in the Form to add Event`);
     try {
       const response = await axios.post(
-        "http://localhost:8500/event",
+        "http://localhost:8500/event" ||
+          "https://vercel.com/tech-0411/ngs-classof2015/event",
         eventObj,
       );
 

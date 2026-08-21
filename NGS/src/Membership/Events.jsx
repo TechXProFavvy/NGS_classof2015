@@ -38,7 +38,7 @@ const EventsSchedule = () => {
         (await fetch(`http://localhost:8500/event/${id}`, {
           method: "DELETE", // Specify the method
         })) ||
-        fetch(`https://ngs-classof2015.onrender.com/event/${id}`, {
+        fetch(`https://vercel.com/tech-0411/ngs-classof2015/event/${id}`, {
           method: "DELETE", // Specify the method
         });
 

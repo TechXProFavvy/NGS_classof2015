@@ -11,7 +11,9 @@ const MessageUs = () => {
   const { activeUser } = useContext(ProfileContext);
   const getMessages = async () => {
     try {
-      let res = await fetch("http://localhost:8500/msg");
+      let res =
+        (await fetch("http://localhost:8500/msg")) ||
+        fetch("https://vercel.com/tech-0411/ngs-classof2015/msg");
       let data = await res.json();
       setMessages(data);
     } catch (error) {
@@ -25,12 +27,16 @@ const MessageUs = () => {
   }, []);
   async function clearMsg() {
     if (!confirm("Are you sure you want to clear?")) return;
-    const response = await fetch("http://localhost:8500/msg", {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
+    const response = await fetch(
+      "http://localhost:8500/msg" ||
+        "https://vercel.com/tech-0411/ngs-classof2015/msg",
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
       },
-    });
+    );
     const data = await response.json();
     if (!response.ok) return toast.error("Messages not deleted try again!");
     toast.success("messages cleared successfully");
