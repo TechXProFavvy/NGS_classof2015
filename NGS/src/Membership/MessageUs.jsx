@@ -13,7 +13,7 @@ const MessageUs = () => {
     try {
       let res =
         (await fetch("http://localhost:8500/msg")) ||
-        fetch("https://vercel.com/tech-0411/ngs-classof2015/msg");
+        fetch("https://ngs-classof2015.vercel.app/msg");
       let data = await res.json();
       setMessages(data);
     } catch (error) {
@@ -29,7 +29,7 @@ const MessageUs = () => {
     if (!confirm("Are you sure you want to clear?")) return;
     const response = await fetch(
       "http://localhost:8500/msg" ||
-        "https://vercel.com/tech-0411/ngs-classof2015/msg",
+        "https://ngs-classof2015.vercel.app/msg",
       {
         method: "DELETE",
         headers: {

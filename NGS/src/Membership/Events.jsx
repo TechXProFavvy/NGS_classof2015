@@ -15,7 +15,7 @@ const EventsSchedule = () => {
       try {
         let res =
           (await fetch("http://localhost:8500/event")) ||
-          fetch("https://ngs-classof2015.onrender.com/event");
+          fetch("https://ngs-classof2015.vercel.app/event");
         if (!res.ok) {
           throw new Error(`Error in fetching Events`);
           toast.error("Something went wrong!");
@@ -38,7 +38,7 @@ const EventsSchedule = () => {
         (await fetch(`http://localhost:8500/event/${id}`, {
           method: "DELETE", // Specify the method
         })) ||
-        fetch(`https://vercel.com/tech-0411/ngs-classof2015/event/${id}`, {
+        fetch(`https://ngs-classof2015.vercel.app/event/${id}`, {
           method: "DELETE", // Specify the method
         });
 

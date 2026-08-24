@@ -26,7 +26,7 @@ const ContactUs = () => {
     try {
       const response = await axios.post(
         "http://localhost:8500/msg" ||
-          "https://vercel.com/tech-0411/ngs-classof2015/msg",
+          "https://ngs-classof2015.vercel.app/msg",
         body,
       );
       toast.success("Message sent !");

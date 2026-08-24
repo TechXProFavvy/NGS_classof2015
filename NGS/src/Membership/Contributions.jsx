@@ -28,7 +28,7 @@ const Contributions = () => {
       if (records.amountPaid < 1000)
         return toast.info("Payment must be 1k or higher");
       let res = await axios.post(
-        "https://vercel.com/tech-0411/ngs-classof2015/payment" ||
+        "https://ngs-classof2015.vercel.app/payment" ||
           "http://localhost:8500/payment",
         records,
       );

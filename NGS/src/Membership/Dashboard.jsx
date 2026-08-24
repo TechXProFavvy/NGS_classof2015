@@ -57,7 +57,7 @@ const Dashboard = () => {
     async function getStoredPayment() {
       try {
         let res = await fetch(
-          "https://vercel.com/tech-0411/ngs-classof2015/payment" ||
+          "https://ngs-classof2015.vercel.app/payment" ||
             "http://localhost:8500/payment",
         );
         let data = await res.json();

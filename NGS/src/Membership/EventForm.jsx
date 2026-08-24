@@ -30,7 +30,7 @@ const EventForm = () => {
     try {
       const response = await axios.post(
         "http://localhost:8500/event" ||
-          "https://vercel.com/tech-0411/ngs-classof2015/event",
+          "https://ngs-classof2015.vercel.app/event",
         eventObj,
       );
 
