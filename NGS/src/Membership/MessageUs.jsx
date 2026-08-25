@@ -11,8 +11,10 @@ const MessageUs = () => {
   const { activeUser } = useContext(ProfileContext);
   const getMessages = async () => {
     try {
-      let res =
-        (await fetch("http://localhost:8500/msg"))
+      let res = await fetch(
+        "http://localhost:8500/msg" ||
+          "https://ngs-classof2015-api.onrender.com/msg",
+      );
       let data = await res.json();
       setMessages(data);
     } catch (error) {
@@ -27,7 +29,8 @@ const MessageUs = () => {
   async function clearMsg() {
     if (!confirm("Are you sure you want to clear?")) return;
     const response = await fetch(
-      "http://localhost:8500/msg",
+      "http://localhost:8500/msg" ||
+        "https://ngs-classof2015-api.onrender.com/msg",
       {
         method: "DELETE",
         headers: {

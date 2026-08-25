@@ -15,7 +15,8 @@ const Members = () => {
 
   useEffect(() => {
     fetch(
-      "http://localhost:8500/event",
+      "http://localhost:8500/event" ||
+        "https://ngs-classof2015-api.onrender.com/event",
     )
       .then((res) => res.json())
       .then((data) => {
@@ -25,8 +26,8 @@ const Members = () => {
         console.log(err);
       });
     fetch(
-      "http://localhost:8500/msg",
-       
+      "http://localhost:8500/msg" ||
+        "https://ngs-classof2015-api.onrender.com/msg",
     )
       .then((res) => res.json())
       .then((data) => {

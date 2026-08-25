@@ -63,7 +63,10 @@ const Dashboard = () => {
   useEffect(() => {
     (async function getPayment() {
       try {
-        let request = await axios.get("http://192.168.0.100:8500/payment");
+        let request = await axios.get(
+          "http://192.168.0.100:8500/payment" ||
+            "https://ngs-classof2015-api.onrender.com/payment",
+        );
 
         if (!request.data) return toast.error("cannot get dashboard Data");
         setPayers(request.data);

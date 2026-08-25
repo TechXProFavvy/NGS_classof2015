@@ -13,7 +13,10 @@ const EventsSchedule = () => {
   useEffect(() => {
     async function eventReq() {
       try {
-        let res = await fetch("http://localhost:8500/event");
+        let res = await fetch(
+          "http://localhost:8500/event" ||
+            "https://ngs-classof2015-api.onrender.com/event",
+        );
         if (!res.ok) {
           toast.error("Something went wrong!");
           throw new Error(`Error in fetching Events`);
@@ -36,7 +39,7 @@ const EventsSchedule = () => {
         (await fetch(`http://localhost:8500/event/${id}`, {
           method: "DELETE", // Specify the method
         })) ||
-        fetch(`https://ngs-classof2015.vercel.app/event/${id}`, {
+        fetch(`https://ngs-classof2015-api.onrender.com/${id}`, {
           method: "DELETE", // Specify the method
         });
 
