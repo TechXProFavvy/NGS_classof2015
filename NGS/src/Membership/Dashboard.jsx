@@ -64,7 +64,7 @@ const Dashboard = () => {
     (async function getPayment() {
       try {
         let request = await axios.get(
-          "http://192.168.0.100:8500/payment" ||
+          
             "https://ngs-classof2015-api.onrender.com/payment",
         );
 

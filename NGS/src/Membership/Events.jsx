@@ -13,10 +13,7 @@ const EventsSchedule = () => {
   useEffect(() => {
     async function eventReq() {
       try {
-        let res = await fetch(
-          "http://localhost:8500/event" ||
-            "https://ngs-classof2015-api.onrender.com/event",
-        );
+        let res = await fetch("https://ngs-classof2015-api.onrender.com/event");
         if (!res.ok) {
           toast.error("Something went wrong!");
           throw new Error(`Error in fetching Events`);
@@ -35,13 +32,12 @@ const EventsSchedule = () => {
     if (!window.confirm("Are you sure you want to delete this user?")) return;
 
     try {
-      const response =
-        (await fetch(`http://localhost:8500/event/${id}`, {
+      const response = await fetch(
+        `https://ngs-classof2015-api.onrender.com/${id}`,
+        {
           method: "DELETE", // Specify the method
-        })) ||
-        fetch(`https://ngs-classof2015-api.onrender.com/${id}`, {
-          method: "DELETE", // Specify the method
-        });
+        },
+      );
 
       const result = await response.json();
 

@@ -9,8 +9,7 @@ const Notify = () => {
     (async function getNotify() {
       try {
         let res = await fetch(
-          "http://localhost:8500/payment" ||
-            "https://ngs-classof2015-api.onrender.com/payment",
+          "https://ngs-classof2015-api.onrender.com/payment",
         );
         let data = await res.json();
         if (!data) return;
@@ -23,15 +22,30 @@ const Notify = () => {
     })();
   }, []);
 
+  function deleteNote(id) {
+    toast.info("Not yet added... calm down");
+  }
+
   if (loading) return <h4 className="loading">loading...</h4>;
   return (
     <div className="Notification">
       {alert.length < 1 ? (
         <h1>You have no notifications</h1>
       ) : (
-        <div>
-          {alert.map((item) => {
-            return item.name;
+        <div className="notify_cards">
+          {alert.map((list) => {
+            return (
+              <div className="card" key={list._id}>
+                {`${list.payer} has paid the sum of ${list.amountPaid},recorded by ${list.recorder} on ${list.dateOfPayment}`}{" "}
+                <button
+                  onClick={() => {
+                    deleteNote(list._id);
+                  }}
+                >
+                  delete
+                </button>
+              </div>
+            );
           })}
         </div>
       )}

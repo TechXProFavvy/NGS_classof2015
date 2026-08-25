@@ -7,17 +7,16 @@ import { FaEnvelope } from "react-icons/fa";
 import { FaBell, FaCreditCard } from "react-icons/fa";
 import { MdDashboard, MdEvent } from "react-icons/md";
 import MemGallery from "../Membership/MemGallery";
+import { toast } from "react-toastify";
 const Members = () => {
   const [eventCount, setEventCount] = useState(0);
   const [msg, setMsg] = useState(0);
+  const [notify, setNotify] = useState(0);
   const location = useLocation();
   const activePath = location.pathname.split("/").filter(Boolean).pop();
 
   useEffect(() => {
-    fetch(
-      "http://localhost:8500/event" ||
-        "https://ngs-classof2015-api.onrender.com/event",
-    )
+    fetch("https://ngs-classof2015-api.onrender.com/event")
       .then((res) => res.json())
       .then((data) => {
         setEventCount(data.length);
@@ -25,10 +24,7 @@ const Members = () => {
       .catch((err) => {
         console.log(err);
       });
-    fetch(
-      "http://localhost:8500/msg" ||
-        "https://ngs-classof2015-api.onrender.com/msg",
-    )
+    fetch("https://ngs-classof2015-api.onrender.com/msg")
       .then((res) => res.json())
       .then((data) => {
         setMsg(data.length);
@@ -36,6 +32,14 @@ const Members = () => {
       })
       .catch((err) => {
         console.log(err);
+      });
+    fetch("https://ngs-classof2015-api.onrender.com/payment")
+      .then((res) => res.json())
+      .then((data) => {
+        setNotify(data.length);
+      })
+      .catch((err) => {
+        throw new Error("error", err);
       });
   }, []);
   return (
@@ -47,7 +51,7 @@ const Members = () => {
             <NavLink to="notifications" title="notification">
               <p>Notifications </p>
               <FaBell className="icon" />
-              <span>0</span>
+              <span>{notify}</span>
             </NavLink>
             <NavLink to="contributions" title="add payment">
               <p>add payment </p>

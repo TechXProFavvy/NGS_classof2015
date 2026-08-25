@@ -4,6 +4,35 @@
   align-content: center;
   text-align: center;
   text-transform: capitalize;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  .notify_cards {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    .card {
+      flex: 1;
+      width: 100%;
+      background-color: var(--ngsDrk);
+      color: var(--ngsLght);
+      padding: 0.5rem;
+      border-radius: 5px;
+      box-shadow: var(--cardShadow);
+      text-align: left;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      button {
+        background-color: crimson;
+        color: bisque;
+        border: none;
+        font-weight: bold;
+        padding: 10px;
+        border-radius: 5px;
+      }
+    }
+  }
 }
 
 .Event-container {
@@ -230,6 +259,36 @@
     align-content: center;
     text-align: center;
     text-transform: capitalize;
+    .notify_cards {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      .card {
+        flex: 1;
+        width: 100%;
+        background-color: var(--ngsDrk);
+        color: var(--ngsLght);
+        padding: 0.5rem;
+        border-radius: 5px;
+        box-shadow: var(--cardShadow);
+        text-align: left;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 5px;
+        button {
+          background-color: crimson;
+          color: bisque;
+          border: none;
+          font-weight: bold;
+          padding: 5px;
+          border-radius: 5px;
+          height: 50%;
+          margin: auto;
+          text-transform: capitalize;
+        }
+      }
+    }
   }
 
   .Event-container {
