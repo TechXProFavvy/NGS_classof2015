@@ -13,12 +13,10 @@ const EventsSchedule = () => {
   useEffect(() => {
     async function eventReq() {
       try {
-        let res =
-          (await fetch("http://localhost:8500/event")) ||
-          fetch("https://ngs-classof2015.vercel.app/event");
+        let res = await fetch("http://localhost:8500/event");
         if (!res.ok) {
-          throw new Error(`Error in fetching Events`);
           toast.error("Something went wrong!");
+          throw new Error(`Error in fetching Events`);
         }
         let data = await res.json();
         setActiveEvents(data);

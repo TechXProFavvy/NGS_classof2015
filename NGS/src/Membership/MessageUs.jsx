@@ -12,8 +12,7 @@ const MessageUs = () => {
   const getMessages = async () => {
     try {
       let res =
-        (await fetch("http://localhost:8500/msg")) ||
-        fetch("https://ngs-classof2015.vercel.app/msg");
+        (await fetch("http://localhost:8500/msg"))
       let data = await res.json();
       setMessages(data);
     } catch (error) {
@@ -28,8 +27,7 @@ const MessageUs = () => {
   async function clearMsg() {
     if (!confirm("Are you sure you want to clear?")) return;
     const response = await fetch(
-      "http://localhost:8500/msg" ||
-        "https://ngs-classof2015.vercel.app/msg",
+      "http://localhost:8500/msg",
       {
         method: "DELETE",
         headers: {

@@ -10,22 +10,13 @@ dotEnv.config();
 
 export const PORT = process.env.PORT;
 export const app = express();
-// ----middle wares-----
+//-----------custom middlewares--------------//
 
-const allowedOrigins = [
-  "http://localhost:5173",
-  "https://greactachievers-ngs-classof2015.netlify.app",
-  "https://vercel.com/tech-0411/ngs-classof2015/",
-];
+// ----middle wares-----//
+
 app.use(
   cors({
-    origin: (origin, callback) => {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
+    origin: "*",
     allowedHeaders: ["Content-Type", "Authorozation"],
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
     credentials: true,

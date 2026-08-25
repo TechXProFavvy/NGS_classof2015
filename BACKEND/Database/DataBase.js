@@ -16,7 +16,8 @@ const dbconnection = async () => {
       console.log(`Listening on PORT ${PORT}`);
     });
   } catch (err) {
-    console.error(`connecton Failed: ${err}`);
+    console.error(`connection Failed: ${err}`);
+    process.exit(1);
   }
 };
 dbconnection();

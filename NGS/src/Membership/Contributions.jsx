@@ -27,15 +27,16 @@ const Contributions = () => {
     try {
       if (records.amountPaid < 1000)
         return toast.info("Payment must be 1k or higher");
-      let res = await axios.post(
-        "https://ngs-classof2015.vercel.app/payment" ||
-          "http://localhost:8500/payment",
-        records,
-      );
-      if (!res.data) return toast.error("something went wrong");
-      toast.success("payment added successfully!");
+      let res = await fetch("http://localhost:8500/payment", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(records),
+      });
+      toast.success("Payment Added Successfully - see the Dashboard");
+      let data = await res.json();
     } catch (err) {
-      throw new Error("something went wrong");
+      toast.error(`Something went wrong ${err}`);
+      throw new Error("something went wrong", err);
     }
   }
 
@@ -74,7 +75,7 @@ const Contributions = () => {
               type="text"
               name="payer"
               id="payer"
-              placeholder="payer"
+              placeholder="Payers Fullname"
               onChange={recordData}
               value={records.payer}
             />
@@ -85,14 +86,15 @@ const Contributions = () => {
               type="text"
               name="recorder"
               id="inputter"
-              placeholder="Recorder"
+              placeholder="Recorders Fullname"
               onChange={recordData}
               value={records.recorder}
             />
           </section>
           <section className="button">
             <button type="submit" onClick={addPayment}>
-              add payment <FaPlus />
+              <FaPlus />
+              add payment
             </button>
             <button type="reset">clear field</button>
           </section>
