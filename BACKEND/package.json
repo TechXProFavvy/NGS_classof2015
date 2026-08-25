@@ -16,9 +16,9 @@
   "main": "App.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "startDev":"nodemon App.js",
-    "startWatch":"node --trace-warnings --watch App.js",
-    "startProd":"node app.js"
+    "startDev": "nodemon App.js",
+    "startWatch": "node --trace-warnings --watch App.js",
+    "start": "node App.js"
   },
   "dependencies": {
     "express": "^5.2.1"
