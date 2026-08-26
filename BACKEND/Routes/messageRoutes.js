@@ -6,6 +6,6 @@ import {
 } from "../Controllers/messageController.js";
 export const messageRouter = express.Router();
 
-messageRouter.get("/api/", getMessages);
-messageRouter.post("/api/", postMessage);
-messageRouter.delete("/api/", deleteMessage);
+messageRouter.get("/msg", getMessages);
+messageRouter.post("/msg", postMessage);
+messageRouter.delete("/msg", deleteMessage);
