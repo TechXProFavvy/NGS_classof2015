@@ -39,6 +39,6 @@ app.use(
 );
 
 app.use(express.json());
-app.use("/api/event", router);
-app.use("/api/msg", messageRouter);
-app.use("/api/payment", paymentRouter);
+app.use("/event", router);
+app.use("/msg", messageRouter);
+app.use("/payment", paymentRouter);
