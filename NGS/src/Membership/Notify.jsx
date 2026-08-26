@@ -9,7 +9,7 @@ const Notify = () => {
     (async function getNotify() {
       try {
         let res = await fetch(
-          "https://ngs-classof2015-api.onrender.com/payment",
+          "https://ngs-classof2015-api.onrender.com/api/payment",
         );
         let data = await res.json();
         if (!data) return;

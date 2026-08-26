@@ -13,7 +13,9 @@ const EventsSchedule = () => {
   useEffect(() => {
     async function eventReq() {
       try {
-        let res = await fetch("https://ngs-classof2015-api.onrender.com/event");
+        let res = await fetch(
+          "https://ngs-classof2015-api.onrender.com/api/event",
+        );
         if (!res.ok) {
           toast.error("Something went wrong!");
           throw new Error(`Error in fetching Events`);
@@ -33,7 +35,7 @@ const EventsSchedule = () => {
 
     try {
       const response = await fetch(
-        `https://ngs-classof2015-api.onrender.com/${id}`,
+        `https://ngs-classof2015-api.onrender.com/api/event/${id}`,
         {
           method: "DELETE", // Specify the method
         },

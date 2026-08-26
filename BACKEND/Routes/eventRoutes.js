@@ -6,9 +6,9 @@ import {
   updateEvent,
 } from "../Controllers/EventControllers.js";
 const router = express.Router();
-router.get("/", getAllEvents);
-router.post("/", postNewEvents);
-router.put("/:id", updateEvent);
-router.delete("/:id", deleteEvent);
+router.get("/api/event", getAllEvents);
+router.post("/api/event", postNewEvents);
+router.put("/api/event/:id", updateEvent);
+router.delete("/api/event/:id", deleteEvent);
 
 export default router;

@@ -65,7 +65,7 @@ const Dashboard = () => {
       try {
         let request = await axios.get(
           
-            "https://ngs-classof2015-api.onrender.com/payment",
+            "https://ngs-classof2015-api.onrender.com/api/payment",
         );
 
         if (!request.data) return toast.error("cannot get dashboard Data");

@@ -26,8 +26,8 @@ const Content = () => {
 
         <Route element={<Protected />}>
           <Route path="/members" element={<Members />}>
+            <Route path="dashboard" element={<Dashboard />} />
             <Route element={<ProtectedMemPage />}>
-              <Route path="dashboard" element={<Dashboard />} />
               <Route path="contributions" element={<Contributions />} />
               <Route path="eventform" element={<EventForm />} />
             </Route>

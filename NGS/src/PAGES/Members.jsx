@@ -16,7 +16,7 @@ const Members = () => {
   const activePath = location.pathname.split("/").filter(Boolean).pop();
 
   useEffect(() => {
-    fetch("https://ngs-classof2015-api.onrender.com/event")
+    fetch("https://ngs-classof2015-api.onrender.com/api/event")
       .then((res) => res.json())
       .then((data) => {
         setEventCount(data.length);
@@ -24,7 +24,7 @@ const Members = () => {
       .catch((err) => {
         console.log(err);
       });
-    fetch("https://ngs-classof2015-api.onrender.com/msg")
+    fetch("https://ngs-classof2015-api.onrender.com/api/msg")
       .then((res) => res.json())
       .then((data) => {
         setMsg(data.length);
@@ -33,7 +33,7 @@ const Members = () => {
       .catch((err) => {
         console.log(err);
       });
-    fetch("https://ngs-classof2015-api.onrender.com/payment")
+    fetch("https://ngs-classof2015-api.onrender.com/api/payment")
       .then((res) => res.json())
       .then((data) => {
         setNotify(data.length);

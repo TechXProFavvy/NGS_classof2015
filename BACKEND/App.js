@@ -16,7 +16,7 @@ export const app = express();
 
 app.use(
   cors({
-    origin: "*",
+    origin: "https://great-achievers-ngs-classof2015.netlify.app",
     allowedHeaders: ["Content-Type", "Authorozation"],
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
     credentials: true,
@@ -39,6 +39,6 @@ app.use(
 );
 
 app.use(express.json());
-app.use("/event", router);
-app.use("/msg", messageRouter);
-app.use("/payment", paymentRouter);
+app.use("/api/event", router);
+app.use("/api/msg", messageRouter);
+app.use("/api/payment", paymentRouter);

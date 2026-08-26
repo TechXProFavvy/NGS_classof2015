@@ -28,8 +28,7 @@ const Contributions = () => {
       if (records.amountPaid < 1000)
         return toast.info("Payment must be 1k or higher");
       let res = await fetch(
-        "http://localhost:8500/payment" ||
-          "https://ngs-classof2015-api.onrender.com/payment",
+        "https://ngs-classof2015-api.onrender.com/api/payment",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -38,6 +37,7 @@ const Contributions = () => {
       );
       toast.success("Payment Added Successfully - see the Dashboard");
       let data = await res.json();
+      console.log(data);
     } catch (err) {
       toast.error(`Something went wrong ${err}`);
       throw new Error("something went wrong", err);

@@ -25,7 +25,7 @@ const ContactUs = () => {
 
     try {
       const response = await axios.post(
-        "https://ngs-classof2015-api.onrender.com/msg",
+        "https://ngs-classof2015-api.onrender.com/api/msg",
 
         body,
       );

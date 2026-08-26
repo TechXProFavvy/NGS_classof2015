@@ -29,7 +29,7 @@ const EventForm = () => {
     if (!eventObj) return toast.warn(`fill in the Form to add Event`);
     try {
       const response = await axios.post(
-        "https://ngs-classof2015-api.onrender.com/event",
+        "https://ngs-classof2015-api.onrender.com/api/event",
         eventObj,
       );
 
