@@ -5,8 +5,8 @@
   --Ln_bg: radial-gradient(#091233ff, #0000);
   --bg: #091233;
   --heat: #fa7101;
-  --danger:#EF4444;
-  --dngBg:#EF444466;
+  --danger: #ef4444;
+  --dngBg: #ef444466;
   --heato: 2px 12px #e25822;
   --txtShadow: 0px 2px 3px #fa7101, -1px -2px 12px #e25822;
   --txtShadow2: 0px -1px 4px #fa7101, -1px -2px 12px #e25822;
@@ -50,10 +50,12 @@
 }
 
 body {
-  background: var(--bg);
-  height: 100%;
   width: 100%;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 @view-transition {
   navigation: auto;
@@ -73,7 +75,5 @@ body {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    min-height: 100vh;
-    height:100%;
   }
 }
